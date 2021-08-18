@@ -19,15 +19,6 @@ h1{
     border-width: 5px;
 }
 
-.botoesonoff{
-    width: 40px;
-    height: 40px;
-    font-size: small;
-    margin-top: 20px;
-    color: white;
-    background-color: #e64379;
-}
-
 .botoescalc{
     width: 50px;
     height: 30px;
@@ -43,10 +34,4 @@ h1{
 
 .colunabotoes{
     padding: 3px 6px;
-}
-
-input[type=text] {
-    font-weight: bold;
-    font-size: larger;
-    color: gray;
 }

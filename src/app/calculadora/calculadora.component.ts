@@ -19,17 +19,6 @@ export class CalculadoraComponent {
     this.valorVisor = null;
    }
 
-  LigarCalc(){
-    this.ligado = true;
-    this.valorVisor = "0";
-  }
-
-  DesligarCalc(){
-    this.ligado = false;
-    this.listaOperacoes = [];
-    this.valorVisor = null;
-  }
-
   DigitarNumeros(numeroDigitado : string){
     if(!this.ligado) { return; }
 
@@ -117,5 +106,24 @@ export class CalculadoraComponent {
 
     this.valorVisor = primeiroOperando.toString().replace('.',',');
     this.listaOperacoes = [];
+  }
+
+  StatusCalculadora(evento : any){
+    if (evento.ligada) {
+      this.LigarCalc();
+    }else{
+      this.DesligarCalc();
+    }
+  }
+
+  LigarCalc(){
+    this.ligado = true;
+    this.valorVisor = "0";
+  }
+
+  DesligarCalc(){
+    this.ligado = false;
+    this.listaOperacoes = [];
+    this.valorVisor = null;
   }
 }

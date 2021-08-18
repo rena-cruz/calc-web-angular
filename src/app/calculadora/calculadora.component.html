@@ -1,18 +1,7 @@
 <div id="bordaexterna" class="rounded-3">
     <div id="borda" class="rounded-3">
-        <div class="row">
-            <div class="col-12">
-                <input id="visor" type="text" class="form-control text-end" [value]="valorVisor" readonly>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <input (click)="DesligarCalc()" type="button" class="rounded-circle botoesonoff" value="OFF">
-            </div>
-            <div class="col-6">
-                <input (click)="LigarCalc()" type="button" class="rounded-circle botoesonoff float-end" value="ON">
-            </div>
-        </div>
+        <app-visor [valor]="valorVisor"></app-visor>
+        <app-energia (ligada)="StatusCalculadora($event)"></app-energia>
         <div class="row">
             <div class="col-3 colunabotoes">
                 <input (click)="DigitarNumeros('7')" type="button" class="rounded-pill botoescalc" value="7">
