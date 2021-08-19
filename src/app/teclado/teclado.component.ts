@@ -19,4 +19,14 @@ export class TecladoComponent {
   NumeroClicado(evento : any){
     this.Digitar("numero", evento.tecla)
   }
+
+  OperadorClicado(evento : any){
+    if (evento.tecla == "=") {
+      this.Digitar("igual");     
+    }else if (evento.tecla == ",") {
+      this.Digitar("ponto");
+    }else{
+      this.Digitar("operador", evento.tecla);
+    }   
+  }
 }

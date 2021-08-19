@@ -9,7 +9,7 @@
         <app-numero valorTecla="9" (digitou)="NumeroClicado($event)"></app-numero>
     </div>
     <div class="col-3 colunabotoes">
-        <input (click)="Digitar('operador', '/')" type="button" class="rounded-pill botoescalc" value="/">
+        <app-operador valorTecla="/" (digitou)="OperadorClicado($event)"></app-operador>
     </div>
 </div>
 <div class="row">
@@ -23,7 +23,7 @@
         <app-numero valorTecla="6" (digitou)="NumeroClicado($event)"></app-numero>
     </div>
     <div class="col-3 colunabotoes">
-        <input (click)="Digitar('operador', '*')" type="button" class="rounded-pill botoescalc" value="*">
+        <app-operador valorTecla="*" (digitou)="OperadorClicado($event)"></app-operador>
     </div>
 </div>
 <div class="row">
@@ -37,12 +37,12 @@
         <app-numero valorTecla="3" (digitou)="NumeroClicado($event)"></app-numero>
     </div>
     <div class="col-3 colunabotoes">
-        <input (click)="Digitar('operador', '-')" type="button" class="rounded-pill botoescalc" value="-">
+        <app-operador valorTecla="-" (digitou)="OperadorClicado($event)"></app-operador>
     </div>
 </div>
 <div class="row">
     <div class="col-3 colunabotoes">
-        <input (click)="Digitar('ponto')" type="button" class="rounded-pill botoescalc" value=",">
+        <app-operador valorTecla="," (digitou)="OperadorClicado($event)"></app-operador>
     </div>
     <div class="col-3 colunabotoes">
         <app-numero valorTecla="0" (digitou)="NumeroClicado($event)"></app-numero>
@@ -51,14 +51,14 @@
         <app-numero valorTecla="00" (digitou)="NumeroClicado($event)"></app-numero>
     </div>
     <div class="col-3 colunabotoes">
-        <input (click)="Digitar('operador', '+')" type="button" class="rounded-pill botoescalc" value="+">
+        <app-operador valorTecla="+" (digitou)="OperadorClicado($event)"></app-operador>
     </div>
 </div>
 <div class="row">
     <div class="col-3 colunabotoes">
     </div>
     <div class="col-6 colunabotoes">
-        <input (click)="Digitar('igual')" id="botaoigual" type="button" class="rounded-pill botoescalc" value="=">
+        <app-operador valorTecla="=" (digitou)="OperadorClicado($event)"></app-operador>
     </div>
     <div class="col-3 colunabotoes">
     </div>

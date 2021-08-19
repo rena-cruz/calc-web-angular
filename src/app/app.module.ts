@@ -7,6 +7,7 @@ import { VisorComponent } from './visor/visor.component';
 import { EnergiaComponent } from './energia/energia.component';
 import { TecladoComponent } from './teclado/teclado.component';
 import { NumeroComponent } from './numero/numero.component';
+import { OperadorComponent } from './operador/operador.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { NumeroComponent } from './numero/numero.component';
     VisorComponent,
     EnergiaComponent,
     TecladoComponent,
-    NumeroComponent
+    NumeroComponent,
+    OperadorComponent
   ],
   imports: [
     BrowserModule
