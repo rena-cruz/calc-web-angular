@@ -6,6 +6,7 @@ import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { VisorComponent } from './visor/visor.component';
 import { EnergiaComponent } from './energia/energia.component';
 import { TecladoComponent } from './teclado/teclado.component';
+import { NumeroComponent } from './numero/numero.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { TecladoComponent } from './teclado/teclado.component';
     CalculadoraComponent,
     VisorComponent,
     EnergiaComponent,
-    TecladoComponent
+    TecladoComponent,
+    NumeroComponent
   ],
   imports: [
     BrowserModule

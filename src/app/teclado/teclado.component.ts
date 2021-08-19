@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-teclado',
   templateUrl: './teclado.component.html',
   styleUrls: ['./teclado.component.css']
 })
-export class TecladoComponent implements OnInit {
+export class TecladoComponent {
 
-  constructor() { }
+  @Output() digitou = new EventEmitter();
 
-  ngOnInit(): void {
+  Digitar(tipoTecla : string, tecla : string = ""){
+    this.digitou.emit({
+      tipo : tipoTecla, 
+      valorDigitado : tecla
+    });
   }
 
+  NumeroClicado(evento : any){
+    this.Digitar("numero", evento.tecla)
+  }
 }

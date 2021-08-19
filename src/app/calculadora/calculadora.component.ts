@@ -19,8 +19,44 @@ export class CalculadoraComponent {
     this.valorVisor = null;
    }
 
-  DigitarNumeros(numeroDigitado : string){
+  StatusCalculadora(evento : any){
+    if (evento.ligada) {
+      this.LigarCalc();
+    }else{
+      this.DesligarCalc();
+    }
+  }
+
+  LigarCalc(){
+    this.ligado = true;
+    this.valorVisor = "0";
+  }
+
+  DesligarCalc(){
+    this.ligado = false;
+    this.listaOperacoes = [];
+    this.valorVisor = null;
+  }
+
+  DigitouTecla(evento : any){
+
     if(!this.ligado) { return; }
+
+    if (evento.tipo == "numero") {
+      this.RecebendoNumero(evento.valorDigitado);
+
+    }else if (evento.tipo == "operador") {
+      this.RecebendoOperador(evento.valorDigitado);
+
+    }else if (evento.tipo == "ponto") {
+      this.RecebendoPonto();
+      
+    }else if (evento.tipo == "igual") {
+      this.RecebendoIgual();     
+    }
+  }
+
+  RecebendoNumero(numeroDigitado : string){
 
     this.valorVisor = this.valorVisor??"0";
     
@@ -32,6 +68,7 @@ export class CalculadoraComponent {
     }else{
       this.valorVisor += numeroDigitado;
     }
+    this.valorVisor = this.valorVisor??"0";
     this.valorVisor = this.RemoverZerosEsquerda(this.valorVisor.replace(',','.')).replace('.',',');
   }
 
@@ -40,16 +77,7 @@ export class CalculadoraComponent {
     return valorNumericoVisor.toString();
   }
 
-  DigitarPonto(){
-    if(!this.ligado) { return; }
-
-    this.valorVisor = this.valorVisor??"0";
-
-    if(this.valorVisor.length >= this.TAMANHO_MAXIMO_VISOR){ return; }
-    this.valorVisor += ",";
-  }
-
-  Operador(operadorDigitado : string){
+  RecebendoOperador(operadorDigitado : string){
 
     this.valorVisor = this.valorVisor??"0";
 
@@ -58,7 +86,15 @@ export class CalculadoraComponent {
     this.limparVisor = true; 
   }
 
-  Igual(){
+  RecebendoPonto(){
+
+    this.valorVisor = this.valorVisor??"0";
+
+    if(this.valorVisor.length >= this.TAMANHO_MAXIMO_VISOR){ return; }
+    this.valorVisor += ",";
+  }
+
+  RecebendoIgual(){
 
     this.valorVisor = this.valorVisor??"0";
 
@@ -108,22 +144,4 @@ export class CalculadoraComponent {
     this.listaOperacoes = [];
   }
 
-  StatusCalculadora(evento : any){
-    if (evento.ligada) {
-      this.LigarCalc();
-    }else{
-      this.DesligarCalc();
-    }
-  }
-
-  LigarCalc(){
-    this.ligado = true;
-    this.valorVisor = "0";
-  }
-
-  DesligarCalc(){
-    this.ligado = false;
-    this.listaOperacoes = [];
-    this.valorVisor = null;
-  }
 }
